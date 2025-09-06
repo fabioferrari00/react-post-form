@@ -19,16 +19,25 @@ function App() {
     setFormData(newFormData)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts`)
+      .then((resp) => {
+        console.log(resp.data)
+      })
+  }
+
 
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1>Hello world</h1>
+            <h1>Form blog post</h1>
           </div>
           <div className="col-12">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="row gy-2">
                 <div className="col-12 col-md-4">
                   <label className="form-label">Autore</label>
